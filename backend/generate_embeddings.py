@@ -20,11 +20,11 @@ PDF_FOLDER = "./docs"
 OPENAI_API_KEY = os.getenv("PERSONAL_API_KEY")
 
 MYSQL_CONFIG = {
-    "host": "127.0.0.1",
-    "port": "3307",
-    "user": "root",
-    "password": "",
-    "database": "chatbot"
+    "host": os.getenv("MYSQL_HOST"),
+    "port": int(os.getenv("MYSQL_PORT")),
+    "user": os.getenv("MYSQL_USER"),
+    "password": os.getenv("MYSQL_PASSWORD"),
+    "database": os.getenv("MYSQL_DATABASE" )
 }
 
 EMBEDDING_MODEL = "text-embedding-3-small"

@@ -10,11 +10,11 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("PERSONAL_API_KEY")
 
 MYSQL_CONFIG = {
-    "host": "127.0.0.1",
-    "port": "3307",
-    "user": "root",
-    "password": "",
-    "database": "chatbot"
+    "host": os.getenv("MYSQL_HOST"),
+    "port": int(os.getenv("MYSQL_PORT")),
+    "user": os.getenv("MYSQL_USER"),
+    "password": os.getenv("MYSQL_PASSWORD"),
+    "database": os.getenv("MYSQL_DATABASE" )
 }
 
 client = OpenAI(api_key=OPENAI_API_KEY)
@@ -111,6 +111,6 @@ def rag_pipeline(question):
     answer = answer_question(question, context)
     return answer
 
-question = "¿Cual es la mejor grafica en calidad precio?"
+question = "¿Cuando se fundo nvidia?"
 respuesta = rag_pipeline(question)
 print(respuesta)
