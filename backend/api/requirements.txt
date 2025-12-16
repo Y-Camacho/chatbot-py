@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+openai
+mysql-connector-python
+python-dotenv
+numpy
+pypdf
+tiktoken
