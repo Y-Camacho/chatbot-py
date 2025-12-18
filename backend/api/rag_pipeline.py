@@ -219,7 +219,7 @@ def answer_question(question, context):
         messages=[
             {
                 "role": "system",
-                "content": "Responde usando únicamente la información del contexto."
+                "content": "Responde usando únicamente la información del contexto. Y responde en el idioma de la pregunta."
             },
             {
                 "role": "user",
