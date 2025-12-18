@@ -240,7 +240,7 @@ Pregunta:
 # Pipeline RAG (exportable)
 # =========================
 
-def rag_pipeline(question: str) -> str:
+def rag_pipeline(question: str) -> dict:
     """
     Pipeline completo RAG:
     1. Embedding de la pregunta
@@ -277,7 +277,7 @@ def rag_pipeline(question: str) -> str:
     # 7. Guardar relación pregunta ↔ embeddings
     save_question_embeddings(question_id, top_docs)
 
-    return answer
+    return {"question": question, "context": context, "answer": answer}
 
 # Export explícito (útil para endpoints)
 __all__ = ["rag_pipeline"]

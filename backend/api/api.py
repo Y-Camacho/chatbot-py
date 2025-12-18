@@ -40,7 +40,9 @@ class ChatRequest(BaseModel):
 
 
 class ChatResponse(BaseModel):
+    question: str
     answer: str
+    context: str
 
 
 class QuestionHistory(BaseModel):
@@ -65,8 +67,8 @@ def chat(request: ChatRequest):
     Endpoint para hacer preguntas al sistema RAG.
     """
     try:
-        answer = rag_pipeline(request.question)
-        return {"answer": answer}
+        response = rag_pipeline(request.question)
+        return {"question": response["question"], "context": response["context"], "answer": response["answer"]}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -171,7 +171,8 @@ const toggleChat = () => {
 
 .message {
 
-  width: 70%;
+  width: fit-content;
+  max-width: 70%;
 
   color: #333;
 
